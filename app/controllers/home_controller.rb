@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
-  def index
+  def root
+    render html: '', layout: true
   end
 end
