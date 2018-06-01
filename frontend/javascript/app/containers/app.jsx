@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux'
-import { store } from '../store/reduxStore'
-import Hello from '../components/hello'
+import { Provider, connect } from 'react-redux';
+import { store } from '../store/reduxStore';
 
+import Test from '../containers/test';
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div>
-          <Hello name='Sam' />
-        </div>
+        <Test/>
       </Provider>
     );
   }
 }
+
 export default App
