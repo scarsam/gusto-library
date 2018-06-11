@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import { Provider, connect } from 'react-redux';
 import { store } from '../store/reduxStore';
 
-import Test from '../containers/test';
-import Session from '../containers/session'
+import SignUpForm from './signUpForm'
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div>
-          <Test />
-          <Session />
-        </div>
+        <SignUpForm />
       </Provider>
     );
   }

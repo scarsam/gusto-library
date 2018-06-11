@@ -1,1 +1,1 @@
-export const TEST = 'TEST';
+export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
