@@ -7,7 +7,9 @@ class Test extends Component {
   render() {
     const { name } = this.props.person;
     return (
-      <Hello name={name} />
+      <div>
+        <Hello name={name} />
+      </div>
     )
   }
 }

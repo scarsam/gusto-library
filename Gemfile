@@ -7,10 +7,10 @@ end
 
 # Environment variables
 gem 'dotenv-rails', groups: [:development, :test]
-# JWT authentication
-gem 'jwt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
+# JWT token gem
+gem 'jwt'
 # Use Postgres as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -40,6 +40,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'pry'
 end
 
 group :development do
