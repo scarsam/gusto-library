@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { userSignUp } from "../actions/signUpActions";
+import { signUp } from "../actions/signUpActions";
 
 class SignUpForm extends Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
-      fullName: '',
+      name: '',
       email: '',
       password: '',
     }
@@ -18,16 +18,16 @@ class SignUpForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.userSignUp(this.state)
+    this.props.signUp(this.state)
   };
 
   render () {
-    const { fullName, email, password } = this.state;
+    const { name, email, password } = this.state;
     return (
       <form onSubmit={this.onSubmit}>
         <div>
-          <label htmlFor='fullName'>Full Name:</label>
-          <input name='fullName' value={fullName} onChange={this.onChange} type='text'/>
+          <label htmlFor='name'>Full Name:</label>
+          <input name='name' value={name} onChange={this.onChange} type='text'/>
         </div>
         <div>
           <label htmlFor='email'>Email:</label>
@@ -44,7 +44,7 @@ class SignUpForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  userSignUp: userData => dispatch(userSignUp(userData))
+  signUp: userData => dispatch(signUp(userData))
 });
 
 export default connect(null, mapDispatchToProps)(SignUpForm)
