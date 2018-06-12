@@ -5,4 +5,5 @@ Rails.application.routes.draw do
       resources :users, only: [:create, :index]
     end
   end
+  get '*path', to: 'home#root'
 end
