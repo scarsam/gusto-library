@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 
 // Actions
 import { signUp } from "../actions/signUpActions";
@@ -23,7 +24,7 @@ class SignUpForm extends Component {
   render () {
     return (
       // Why do I need to bind even though I use arrow function?
-      <form onSubmit={this.onSubmit.bind(this)}>
+      <form onSubmit={this.onSubmit}>
         <div>
           <label htmlFor='name'>Full Name:</label>
           <input name='name' value={this.props.user.name} onChange={this.onChange} type='text'/>
@@ -53,4 +54,4 @@ const mapDispatchToProps = (dispatch) => ({
   signUp: userData => dispatch(signUp(userData))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUpForm))

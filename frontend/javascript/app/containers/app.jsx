@@ -13,8 +13,8 @@ class App extends Component {
       <Provider store={store}>
         <Router history={history}>
           <Switch>
+            <Route exact path='/' component={Home} />
             <Route path='/signup' component={SignUpForm} />
-            <Route path='/' component={Home} />
           </Switch>
         </Router>
       </Provider>
