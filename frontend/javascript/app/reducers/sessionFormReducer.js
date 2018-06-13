@@ -5,7 +5,7 @@ let initialState = {
   email: '',
   password: '',
 };
-export const signUpFormReducer = (state = initialState, action) => {
+export const sessionFormReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case UPDATE_FORM_NAME:

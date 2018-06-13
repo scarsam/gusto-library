@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom'
 
 // Actions
-import { signUpUser } from "../actions/signUpActions";
+import { logInUser } from "../actions/sessionActions";
 import { onFormChange } from "../actions/sessionFormActions";
 
-class SignUpForm extends Component {
+class LogInForm extends Component {
   constructor(props) {
     super();
   }
@@ -18,18 +18,14 @@ class SignUpForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.signUpUser(this.props.user);
+    this.props.signUp(this.props.user);
   };
 
   render () {
     return (
       <div>
-        <h1>Sign Up</h1>
+        <h1>Login Form</h1>
         <form onSubmit={this.onSubmit}>
-          <div>
-            <label htmlFor='name'>Full Name:</label>
-            <input name='name' value={this.props.user.name} onChange={this.onChange} type='text'/>
-          </div>
           <div>
             <label htmlFor='email'>Email:</label>
             <input name='email' value={this.props.user.email} onChange={this.onChange} type='text'/>
@@ -40,7 +36,7 @@ class SignUpForm extends Component {
           </div>
           <input type='submit'/>
         </form>
-        <Link to="/login">Log in</Link>
+        <Link to="/signup">Sign Up</Link>
       </div>
     );
   }
@@ -54,7 +50,7 @@ const mapStateToProps = (state) => ({
 // Dispatch for form inputs and submit
 const mapDispatchToProps = (dispatch) => ({
   onFormChange: formData => dispatch(onFormChange(formData)),
-  signUpUser: userData => dispatch(signUpUser(userData))
+  logInUser: () => dispatch(logInUser)
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUpForm))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LogInForm))

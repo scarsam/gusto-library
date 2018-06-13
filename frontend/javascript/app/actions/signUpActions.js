@@ -2,7 +2,7 @@ import history from '../history'
 import { API } from '../api'
 import {CREATE_USERS_PENDING, CREATE_USERS_REJECTED, CREATE_USERS_FULFILLED} from "../constants";
 
-export const signUp = (userData) => {
+export const signUpUser = (userData) => {
   return dispatch => {
     dispatch({type: CREATE_USERS_PENDING});
     API.post('/api/v1/users', userData)
