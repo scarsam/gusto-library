@@ -3,10 +3,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
     create_table :users do |t|
       t.string :email
       t.string :name
-      t.string :uid
-      t.string :photo
-
-      t.timestamps
+      t.string :password_digest
     end
   end
 end

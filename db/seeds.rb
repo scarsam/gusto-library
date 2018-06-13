@@ -9,6 +9,5 @@
 User.create(
   email: 'sam@ojling.com',
   name: 'Sam Ojling',
-  uid: '1',
-  photo: 'http://sam.jpg',
+  password: 'freshare',
 )

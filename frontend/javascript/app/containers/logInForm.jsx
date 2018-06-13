@@ -18,7 +18,7 @@ class LogInForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.signUp(this.props.user);
+    this.props.logInUser(this.props.user);
   };
 
   render () {
@@ -50,7 +50,7 @@ const mapStateToProps = (state) => ({
 // Dispatch for form inputs and submit
 const mapDispatchToProps = (dispatch) => ({
   onFormChange: formData => dispatch(onFormChange(formData)),
-  logInUser: () => dispatch(logInUser)
+  logInUser: (userData) => dispatch(logInUser(userData))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LogInForm))
