@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // Actions
 import { signUp } from "../actions/signUpActions";
-import { signUpForm } from "../actions/signUpFormActions";
+import { onFormChange } from "../actions/signUpFormActions";
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class SignUpForm extends Component {
 
   onChange = (e) => {
     let formData = {[e.target.name]: e.target.value};
-    this.props.updateForm(formData);
+    this.props.onFormChange(formData);
   };
 
   onSubmit = (e) => {
@@ -42,12 +42,14 @@ class SignUpForm extends Component {
   }
 }
 
+// Form state
 const mapStateToProps = (state) => ({
   user: state.signUpFormReducer,
 });
 
+// Dispatch for form inputs and submit
 const mapDispatchToProps = (dispatch) => ({
-  updateForm: formData => dispatch(signUpForm(formData)),
+  onFormChange: formData => dispatch(onFormChange(formData)),
   signUp: userData => dispatch(signUp(userData))
 });
 

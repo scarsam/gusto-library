@@ -1,6 +1,6 @@
 import {UPDATE_FORM_NAME, UPDATE_FORM_EMAIL, UPDATE_FORM_PASSWORD} from "../constants";
 
-export const signUpForm = (formData) => {
+export const onFormChange = (formData) => {
   const {name, email, password} = formData;
   if (name) {
     return {type: UPDATE_FORM_NAME, payload: name}
