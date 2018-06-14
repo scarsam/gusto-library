@@ -1,8 +1,8 @@
 import {
-  LOG_IN_USER_FULFILLED,
-  LOG_IN_USER_PENDING,
-  LOG_IN_USER_REJECTED,
-  LOG_OUT_USER_FULFILLED
+  USER_SESSION_PENDING,
+  USER_SESSION_FULFILLED,
+  USER_SESSION_REJECTED,
+  USER_SESSION_DESTROYED
 } from "../constants";
 
 let initialState = {
@@ -16,13 +16,13 @@ let initialState = {
 export const sessionReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case LOG_IN_USER_PENDING:
+    case USER_SESSION_PENDING:
       return {...state, pending: true};
-    case LOG_IN_USER_FULFILLED:
+    case USER_SESSION_FULFILLED:
       return {...state, pending: false, loggedIn: true, user: payload};
-    case LOG_IN_USER_REJECTED:
+    case USER_SESSION_REJECTED:
       return {...state, pending: false, loggedIn: false, errors: payload};
-    case LOG_OUT_USER_FULFILLED:
+    case USER_SESSION_DESTROYED:
       return {...state, loggedOut: true, user: {}};
     default:
       return state

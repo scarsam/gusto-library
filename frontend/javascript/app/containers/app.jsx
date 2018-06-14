@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { store } from '../store/reduxStore';
 import history from '../history'
 
-import LogInForm from './logInForm'
+import SocialLogin from './socialLogin'
 import Home from './home'
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
         <Router history={history}>
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/login' component={LogInForm} />
+            <Route path='/login' component={SocialLogin} />
           </Switch>
         </Router>
       </Provider>

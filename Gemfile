@@ -5,16 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# JWT token gem
+gem 'jwt'
 # CORS Middleware
 gem 'rack-cors', require: 'rack/cors'
-# oAuth with Google
-gem 'omniauth-google-oauth2'
 # Environment variables
 gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
-# JWT token gem
-gem 'jwt'
 # Use Postgres as the database for Active Record
 gem 'pg'
 # Use Puma as the app server

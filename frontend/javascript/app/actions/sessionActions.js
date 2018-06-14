@@ -1,19 +1,31 @@
 import {
-  LOG_IN_USER_FULFILLED,
-  LOG_IN_USER_PENDING,
-  LOG_IN_USER_REJECTED,
-  LOG_OUT_USER_FULFILLED
+  USER_SESSION_PENDING,
+  USER_SESSION_FULFILLED,
+  USER_SESSION_REJECTED,
 } from "../constants";
 import history from '../history'
 import {API} from "../api";
 
-export const logInUser = () => {
-  history.push('/auth/google_oauth2');
-  return {type: LOG_IN_USER_PENDING};
+export const createUserSessionSuccess = (userData) => {
+  return dispatch => {
+    dispatch({type: USER_SESSION_PENDING});
+    API.post('/api/v1/sessions', userData.profileObj)
+      .then(response => {
+        dispatch({type: USER_SESSION_FULFILLED, payload: response.data});
+        sessionStorage.setItem('jwt', response.data);
+        history.push('/')
+      })
+      .catch(error => {
+        debugger
+      })
+  };
 };
 
-export const logOutUser = () => {
-  sessionStorage.removeItem('jwt');
+export const createUserSessionFailure = (error) => {
+  return {type: USER_SESSION_REJECTED, payload: error}
+};
+
+export const destroyUserSession = () => {
   history.push('/signup');
-  return {type: LOG_OUT_USER_FULFILLED};
+  return {type: USER_SESSION_PENDING};
 };
