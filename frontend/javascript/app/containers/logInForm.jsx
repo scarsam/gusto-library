@@ -25,17 +25,7 @@ class LogInForm extends Component {
     return (
       <div>
         <h1>Login Form</h1>
-        <form onSubmit={this.onSubmit}>
-          <div>
-            <label htmlFor='email'>Email:</label>
-            <input name='email' value={this.props.user.email} onChange={this.onChange} type='text'/>
-          </div>
-          <div>
-            <label htmlFor='password'>Password:</label>
-            <input name='password' value={this.props.user.password} onChange={this.onChange} type='password'/>
-          </div>
-          <input type='submit'/>
-        </form>
+        <a href="/auth/google_oauth2">Google</a>
         <Link to="/signup">Sign Up</Link>
       </div>
     );
@@ -50,7 +40,7 @@ const mapStateToProps = (state) => ({
 // Dispatch for form inputs and submit
 const mapDispatchToProps = (dispatch) => ({
   onFormChange: formData => dispatch(onFormChange(formData)),
-  logInUser: (userData) => dispatch(logInUser(userData))
+  logInUser: () => dispatch(logInUser())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LogInForm))

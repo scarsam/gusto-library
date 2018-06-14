@@ -7,19 +7,9 @@ import {
 import history from '../history'
 import {API} from "../api";
 
-export const logInUser = (userData) => {
-  return dispatch => {
-    dispatch({type: LOG_IN_USER_PENDING});
-    API.post('/api/v1/sessions', userData)
-      .then(response => {
-        dispatch({type: LOG_IN_USER_FULFILLED, payload: response.data});
-        sessionStorage.setItem('jwt', response.data);
-        history.push('/')
-      })
-      .catch(error => {
-        dispatch({type: LOG_IN_USER_REJECTED, payload: error.response});
-      })
-  }
+export const logInUser = () => {
+  history.push('/auth/google_oauth2');
+  return {type: LOG_IN_USER_PENDING};
 };
 
 export const logOutUser = () => {
