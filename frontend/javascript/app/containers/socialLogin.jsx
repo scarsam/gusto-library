@@ -5,8 +5,8 @@ import { withRouter, Link } from 'react-router-dom'
 import GoogleLogin from 'react-google-login';
 
 // Actions
-import { loginUser } from "../actions/loginActions";
-import { loginError } from "../actions/loginActions";
+import { loginUser } from "../actions/sessionActions";
+import { loginError } from "../actions/sessionActions";
 
 class SocialLogin extends Component {
   constructor(props) {
