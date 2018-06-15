@@ -5,8 +5,8 @@ import { withRouter, Link } from 'react-router-dom'
 import GoogleLogin from 'react-google-login';
 
 // Actions
-import { createUserSessionSuccess } from "../actions/sessionActions";
-import { createUserSessionFailure } from "../actions/sessionActions";
+import { loginUser } from "../actions/loginActions";
+import { loginError } from "../actions/loginActions";
 
 class SocialLogin extends Component {
   constructor(props) {
@@ -14,11 +14,11 @@ class SocialLogin extends Component {
   }
 
   onSuccess = (userData) => {
-    this.props.createUserSessionSuccess(userData);
+    this.props.loginUser(userData);
   };
 
   onFailure = (error) => {
-    this.props.createUserSessionFailure(error);
+    this.props.loginError(error);
   };
 
   render () {
@@ -38,8 +38,8 @@ class SocialLogin extends Component {
 
 // Dispatch for form inputs and submit
 const mapDispatchToProps = (dispatch) => ({
-  createUserSessionSuccess: (userData) => dispatch(createUserSessionSuccess(userData)),
-  createUserSessionFailure: (userData) => dispatch(createUserSessionFailure(userData))
+  loginUser: (userData) => dispatch(loginUser(userData)),
+  loginError: (userData) => dispatch(loginError(userData))
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(SocialLogin))

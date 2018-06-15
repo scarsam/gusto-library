@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 
 // actions
-import { destroyUserSession } from '../actions/sessionActions'
+import { logoutUser } from '../actions/loginActions'
 
 class Home extends Component {
   constructor(props) {
@@ -12,13 +12,15 @@ class Home extends Component {
 
   onClick = (e) => {
     e.preventDefault();
-    this.props.destroyUserSession();
+    this.props.login();
   };
 
   render() {
     return (
       <div>
-        <h1>Hi!</h1>
+        <ul>
+          <li>Auth function to decode jwt token from backend</li>
+        </ul>
         <button onClick={this.onClick}>Logout</button>
       </div>
     )
@@ -26,7 +28,7 @@ class Home extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  destroyUserSession: () => dispatch(destroyUserSession)
+  login: () => dispatch(logoutUser())
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(Home))
