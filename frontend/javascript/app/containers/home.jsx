@@ -4,10 +4,16 @@ import { withRouter } from 'react-router-dom'
 
 // actions
 import { logoutUser } from '../actions/sessionActions'
+import { currentUser } from "../actions/userActions";
+import {userReducer} from "../reducers/userReducer";
 
 class Home extends Component {
   constructor(props) {
     super();
+  }
+
+  componentDidMount() {
+    this.props.currentUser();
   }
 
   onClick = (e) => {
@@ -16,10 +22,13 @@ class Home extends Component {
   };
 
   render() {
+    const {user} = this.props.user;
     return (
       <div>
+        <h1>Welcome {user.name}</h1>
         <ul>
-          <li>Auth function to decode jwt token from backend</li>
+          <li>Ready</li>
+          <li>Move user to sessionReducer?</li>
         </ul>
         <button onClick={this.onClick}>Logout</button>
       </div>
@@ -28,7 +37,12 @@ class Home extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  logoutUser: () => dispatch(logoutUser())
+  logoutUser: () => dispatch(logoutUser()),
+  currentUser: () => dispatch(currentUser())
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(Home))
+const mapStateToProps = (state) => ({
+  user: state.userReducer
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home))

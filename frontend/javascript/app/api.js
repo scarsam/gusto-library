@@ -5,6 +5,15 @@ export const API = axios.create({
     "X-CSRF-Token": document.querySelector("meta[name=csrf-token]").content,
     'X-Requested-With': 'XMLHttpRequest',
     "Access-Control-Allow-Origin": "*",
-    'Authorization': `${sessionStorage.jwt}` || null,
   },
+});
+
+// Set sessionStorage on each request
+API.interceptors.request.use(config => {
+  if (sessionStorage.getItem('jwt')) {
+    config.headers.Authorization = sessionStorage.getItem('jwt')
+  }
+  return config
+}, error => {
+  return Promise.reject(error);
 });

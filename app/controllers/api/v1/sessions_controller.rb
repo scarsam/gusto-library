@@ -1,7 +1,6 @@
 module Api
   module V1
     class SessionsController < ApplicationController
-      # skip_before_action :authenticate, only: [:create]
 
       def create
         @user = User.find_or_create_by(googleId: user_params[:googleId]) do |u|

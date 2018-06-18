@@ -15,7 +15,7 @@ export const loginUser = (userData) => {
         sessionStorage.setItem('jwt', response.data);
         dispatch({type: LOGIN_SUCCESS, payload: response.data});
         history.push('/')
-      })
+      });
   };
 };
 
