@@ -9,7 +9,8 @@ module Api
           u.imageUrl = user_params[:imageUrl]
         end
         token = Auth.issue({googleId: @user.googleId})
-        render json: token
+        render status: 200,
+               json: {token: token, user: @user.name}
       end
 
       private

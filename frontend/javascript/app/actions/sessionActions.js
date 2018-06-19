@@ -12,7 +12,8 @@ export const loginUser = (userData) => {
     dispatch({type: LOGIN_REQUEST});
     API.post('/api/v1/sessions', userData.profileObj)
       .then(response => {
-        sessionStorage.setItem('jwt', response.data);
+        sessionStorage.setItem('jwt', response.data.token);
+        sessionStorage.setItem('user', response.data.user);
         dispatch({type: LOGIN_SUCCESS, payload: response.data});
         history.push('/')
       });
@@ -25,6 +26,7 @@ export const loginError = (error) => {
 
 export const logoutUser = () => {
   sessionStorage.removeItem('jwt');
+  sessionStorage.removeItem('user');
   history.push('/login');
   return {type: LOGOUT_SUCCESS};
 };

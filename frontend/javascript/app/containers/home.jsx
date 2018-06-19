@@ -4,8 +4,7 @@ import { withRouter } from 'react-router-dom'
 
 // actions
 import { logoutUser } from '../actions/sessionActions'
-import { currentUser } from "../actions/userActions";
-import {userReducer} from "../reducers/userReducer";
+import { getUser } from "../actions/userActions";
 
 class Home extends Component {
   constructor(props) {
@@ -13,7 +12,8 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.currentUser();
+    const userObject = sessionStorage.getItem('user')
+    this.props.getUser(userObject)
   }
 
   onClick = (e) => {
@@ -22,13 +22,11 @@ class Home extends Component {
   };
 
   render() {
-    const {user} = this.props.user;
     return (
       <div>
-        <h1>Welcome {user.name}</h1>
+        <h1>Welcome {this.props.user}</h1>
         <ul>
-          <li>Ready</li>
-          <li>Move user to sessionReducer?</li>
+          <li>Refresh sessionReducer on page refresh</li>
         </ul>
         <button onClick={this.onClick}>Logout</button>
       </div>
@@ -38,11 +36,11 @@ class Home extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   logoutUser: () => dispatch(logoutUser()),
-  currentUser: () => dispatch(currentUser())
+  getUser: (userObject) => dispatch(getUser(userObject)),
 });
 
 const mapStateToProps = (state) => ({
-  user: state.userReducer
+  user: state.userReducer.user
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home))
