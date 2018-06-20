@@ -34,13 +34,14 @@ class Home extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  user: state.userReducer.user
+});
+
+
 const mapDispatchToProps = (dispatch) => ({
   logoutUser: () => dispatch(logoutUser()),
   getUser: (userObject) => dispatch(getUser(userObject)),
-});
-
-const mapStateToProps = (state) => ({
-  user: state.userReducer.user
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home))

@@ -6,6 +6,7 @@ import { store } from '../store/reduxStore';
 import history from '../history'
 
 import Home from '../containers/home'
+import BookSearchPage from './bookSearchPage'
 import SocialLogin from './socialLogin'
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
         <Router history={history}>
           <Switch>
             <Route path='/login' component={SocialLogin}/>
+            <PrivateRoute path='/books/new' component={BookSearchPage}/>
             <PrivateRoute path='/' component={Home}/>
           </Switch>
         </Router>
