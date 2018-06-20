@@ -45,7 +45,7 @@ class BookSearchPage extends Component {
 
 const mapStateToProps = (state) => ({
   searchQuery: state.bookFormReducer.searchQuery,
-  books: state.bookFormReducer.books
+  books: state.bookFormReducer.books,
 });
 
 const mapDispatchToProps = (dispatch) => ({

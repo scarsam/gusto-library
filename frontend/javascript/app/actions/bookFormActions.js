@@ -10,7 +10,7 @@ import axios from 'axios';
 export const submitBookForm = (formData) => {
   return dispatch => {
     dispatch({type: BOOK_FORM_REQUEST});
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q="${formData}"&fields=items(volumeInfo/description,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks)&key=${API_KEY}`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q="${formData}"&fields=items(volumeInfo/description,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks)&maxResults=20&key=${API_KEY}`)
       .then(response => {
         dispatch({type: BOOK_FORM_SUCCESS, payload: response.data.items});
       });
