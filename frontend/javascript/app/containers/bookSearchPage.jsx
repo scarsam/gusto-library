@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 // actions
 import {submitBookForm} from '../actions/bookFormActions'
 import {updateBookForm} from '../actions/bookFormActions'
+import {addBook} from "../actions/bookActions";
 
 // component
 import {BookForm} from '../components/bookForm'

@@ -5,9 +5,10 @@ import { Provider } from 'react-redux';
 import { store } from '../store/reduxStore';
 import history from '../history'
 
-import Home from '../containers/home'
+import Home from './home'
 import BookSearchPage from './bookSearchPage'
 import SocialLogin from './socialLogin'
+import Library from './library'
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Switch>
             <Route path='/login' component={SocialLogin}/>
             <PrivateRoute path='/books/new' component={BookSearchPage}/>
+            <PrivateRoute path='/library' component={Library}/>
             <PrivateRoute path='/' component={Home}/>
           </Switch>
         </Router>

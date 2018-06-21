@@ -9,6 +9,23 @@ export const Suggestions = (props) => {
       <p>{book.volumeInfo.title}</p>
       <p>{book.volumeInfo.authors}</p>
       <p>{book.volumeInfo.description}</p>
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Add to:
+          <select>
+            <option value="wishList">Wish list</option>
+            <option value="library">Library</option>
+          </select>
+        </label>
+        <label>
+          Location:
+          <select>
+            <option value="sanFrancisco">San Francisco</option>
+            <option value="denver">Denver</option>
+          </select>
+        </label>
+        <input type="submit" value="Add" />
+      </form>
     </li>
   ));
   if (props.pending === true) {

@@ -27,3 +27,7 @@ export const updateBookForm = (formData) => {
   const inputValue = formData.target.value;
   return {type: BOOK_FORM_UPDATE, payload: inputValue}
 };
+
+export const addBook = (book) => {
+
+};
