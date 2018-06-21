@@ -6,9 +6,7 @@ import {
 } from "../constants";
 
 let initialState = {
-  pending: false,
-  books: [],
-  searchQuery: '',
+  added: false,
 };
 
 export const bookReducer = (state = initialState, action) => {
