@@ -11,5 +11,9 @@ export const Suggestions = (props) => {
       <p>{book.volumeInfo.description}</p>
     </li>
   ));
-  return <ul>{results}</ul>
+  if (props.pending === true) {
+    return <p>Loading..</p>
+  } else {
+    return <ul>{results}</ul>
+  }
 };

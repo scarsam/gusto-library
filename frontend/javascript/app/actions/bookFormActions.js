@@ -8,11 +8,17 @@ import {
 import axios from 'axios';
 
 export const submitBookForm = (formData) => {
+  this.search = formData;
+  if (formData === '') {
+    return {type: BOOK_FORM_RESET}
+  }
   return dispatch => {
     dispatch({type: BOOK_FORM_REQUEST});
     axios.get(`https://www.googleapis.com/books/v1/volumes?q="${formData}"&fields=items(volumeInfo/description,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks)&maxResults=20&key=${API_KEY}`)
       .then(response => {
-        dispatch({type: BOOK_FORM_SUCCESS, payload: response.data.items});
+        if (this.search === formData) {
+          dispatch({type: BOOK_FORM_SUCCESS, payload: response.data.items});
+        }
       });
   };
 };
@@ -20,8 +26,4 @@ export const submitBookForm = (formData) => {
 export const updateBookForm = (formData) => {
   const inputValue = formData.target.value;
   return {type: BOOK_FORM_UPDATE, payload: inputValue}
-};
-
-export const resetBookForm = () => {
-  return {type: BOOK_FORM_RESET}
 };
