@@ -5,7 +5,8 @@ import {
 } from "../constants";
 
 let initialState = {
-  books: [],
+  book: null,
+  added: false,
   pending: false,
   error: null,
 };
@@ -14,7 +15,11 @@ export const bookReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case ADD_BOOK_REQUEST:
-      return state
+      return {...state, pending: true};
+    case ADD_BOOK_SUCCESS:
+      return {...state, pending: false, added: true, book: payload};
+    case ADD_BOOK_FAILURE:
+      return {...state, error: payload, added: false};
     default:
       return state
   }

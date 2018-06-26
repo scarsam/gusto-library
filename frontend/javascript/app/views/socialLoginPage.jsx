@@ -8,7 +8,7 @@ import GoogleLogin from 'react-google-login';
 import { loginUser } from "../actions/sessionActions";
 import { loginError } from "../actions/sessionActions";
 
-class SocialLogin extends Component {
+class SocialLoginPage extends Component {
   constructor(props) {
     super();
   }
@@ -42,4 +42,4 @@ const mapDispatchToProps = (dispatch) => ({
   loginError: (userData) => dispatch(loginError(userData))
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(SocialLogin))
+export default withRouter(connect(null, mapDispatchToProps)(SocialLoginPage))

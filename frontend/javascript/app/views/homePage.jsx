@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 import { logoutUser } from '../actions/sessionActions'
 import { getUser } from "../actions/userActions";
 
-class Home extends Component {
+class HomePage extends Component {
   constructor(props) {
     super();
   }
@@ -44,4 +44,4 @@ const mapDispatchToProps = (dispatch) => ({
   getUser: (userObject) => dispatch(getUser(userObject)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage))

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
-class Library extends Component {
+class LibraryPage extends Component {
   constructor(props) {
     super();
   }
@@ -17,4 +17,4 @@ class Library extends Component {
 
 }
 
-export default withRouter(connect(null, null)(Library))
+export default withRouter(connect(null, null)(LibraryPage))

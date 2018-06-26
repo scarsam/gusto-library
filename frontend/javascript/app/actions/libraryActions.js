@@ -5,7 +5,7 @@ import {
 } from "../constants";
 import {API} from "../api";
 
-export const loadExistingBooks = () => {
+export const loadLibraryBooks = () => {
   return dispatch => {
     dispatch({type: LIBRARY_BOOKS_REQUEST});
     API.get('/api/v1/books')
