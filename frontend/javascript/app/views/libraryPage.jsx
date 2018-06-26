@@ -19,7 +19,7 @@ class LibraryPage extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.bookRemoved !== this.props.bookRemoved) {
+    if (prevProps.isBookRemoved !== this.props.isBookRemoved) {
       this.props.loadLibraryBooks();
     }
   }
@@ -40,7 +40,7 @@ class LibraryPage extends Component {
 
 const mapStateToProps = (state) => ({
   libraryBooks: state.libraryReducer.books,
-  bookRemoved: state.bookReducer.removed
+  isBookRemoved: state.bookReducer.removed
 });
 
 const mapDispatchToProps = (dispatch) => ({

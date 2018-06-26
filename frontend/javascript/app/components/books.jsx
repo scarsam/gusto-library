@@ -10,5 +10,9 @@ export const Books = (props) => {
       <button onClick={() => props.removeBook(book)}>Remove from Library</button>
     </li>
   ));
-  return <ul>{results}</ul>
+  if (results.length > 0) {
+    return <ul>{results}</ul>
+  } else {
+    return <p>No books added to the library yet.</p>
+  }
 };

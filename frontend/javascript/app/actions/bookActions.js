@@ -10,7 +10,7 @@ import {API} from "../api";
 
 export const addBook = (book) => {
   return dispatch => {
-    ADD_BOOK_REQUEST
+    dispatch({type: ADD_BOOK_REQUEST});
     API.post('/api/v1/books', book)
       .then(response => {
         dispatch({type: ADD_BOOK_SUCCESS, payload: book})
@@ -32,4 +32,4 @@ export const removeBook = (book) => {
         dispatch({type: REMOVE_BOOK_FAILURE})
       })
   }
-}
+};

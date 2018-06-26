@@ -19,7 +19,7 @@ export const bookReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case ADD_BOOK_REQUEST:
-      return {...state, pending: true};
+      return {...state, pending: true, added: false};
     case ADD_BOOK_SUCCESS:
       return {...state, pending: false, added: true, book: payload};
     case ADD_BOOK_FAILURE:

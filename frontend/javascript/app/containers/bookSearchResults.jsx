@@ -18,7 +18,11 @@ class BookSearchResults extends Component {
     this.props.loadLibraryBooks();
   }
 
-  componentDid
+  componentDidUpdate(prevProps) {
+    if (prevProps.isBookAdded !== this.props.isBookAdded) {
+      this.props.loadLibraryBooks();
+    }
+  }
 
   render() {
     return (
@@ -39,6 +43,8 @@ const mapStateToProps = (state) => ({
   pending: state.searchReducer.pending,
   libraryBooks: state.libraryReducer.books,
   addedBook: state.bookReducer.book,
+  isBookAdded: state.bookReducer.added
+
 });
 
 const mapDispatchToProps = (dispatch) => ({
