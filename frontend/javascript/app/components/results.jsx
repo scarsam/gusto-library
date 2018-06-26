@@ -18,13 +18,33 @@ export const Results = (props) => {
   }
 };
 
+// Filter search results and also filters the added books when the user adds a book
 const filteredResults = (props) => {
-  if (props.addedBook && props.libraryBooks.length > 0) {
-    return props.searchResults
-      .filter(book => book.volumeInfo.title !== props.addedBook.volumeInfo.title)
-      .filter(book => props.libraryBooks.findIndex(libraryBook => libraryBook.title === book.volumeInfo.title) === -1)
+  let filteredBooks = props.searchResults
+    .filter(book => filterUndefined(book))
+    .filter(book => filterLibraryBooks(book, props.libraryBooks));
+  if (props.addedBook) {
+    filteredBooks.filter(book => filterAddedBooks(book, props.addedBook))
+  }
+  return filteredBooks
+};
+
+// Filter away books that exist in the Library (db)
+const filterLibraryBooks = (book, libraryBooks) => {
+  return libraryBooks.findIndex(libraryBook => libraryBook.title === book.volumeInfo.title) === -1;
+};
+
+// Filter away books that just got added and can be found in the store
+const filterAddedBooks = (book, addedBook) => {
+  return book.volumeInfo.title !== addedBook.volumeInfo.title
+};
+
+// Filter away results that have any undefined value
+const filterUndefined = (book) => {
+  const { title, description, authors, imageLinks: {smallThumbnail} = {}} = book.volumeInfo;
+  if (title && description && authors && smallThumbnail) {
+    return true
   } else {
-    return props.searchResults
-      .filter(book => props.libraryBooks.findIndex(libraryBook => libraryBook.title === book.volumeInfo.title) === -1)
+    return false
   }
 };
