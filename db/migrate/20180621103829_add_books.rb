@@ -6,6 +6,7 @@ class AddBooks < ActiveRecord::Migration[5.1]
       t.string :description
       t.string :thumbnail
       t.string :location
+      t.integer :user_id
     end
   end
 end
