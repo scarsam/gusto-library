@@ -18,6 +18,8 @@ class BookSearchResults extends Component {
     this.props.loadLibraryBooks();
   }
 
+  componentDid
+
   render() {
     return (
       <Results

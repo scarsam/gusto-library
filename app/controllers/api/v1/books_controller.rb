@@ -22,6 +22,13 @@ module Api
         books = Book.all
         render json: books
       end
+
+      def destroy
+        book = Book.find(params[:id])
+        book.destroy
+        head :no_content
+      end
+
     end
   end
 end
