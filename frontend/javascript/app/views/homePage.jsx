@@ -27,7 +27,6 @@ class HomePage extends Component {
         <h1>Welcome {this.props.current_user}</h1>
         <ul>
           <li>Join table for rented books</li>
-          <li>Nav</li>
           <li>Profile page</li>
         </ul>
         <button onClick={this.onClick}>Logout</button>
