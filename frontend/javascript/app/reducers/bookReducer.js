@@ -29,7 +29,7 @@ export const bookReducer = (state = initialState, action) => {
     case REMOVE_BOOK_SUCCESS:
       return {...state, pending: false, removed: true};
     case REMOVE_BOOK_FAILURE:
-      return {...state, error: payload, removed: false}
+      return {...state, error: payload, removed: false};
     default:
       return state
   }

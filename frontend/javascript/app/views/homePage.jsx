@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 
 // actions
-import { logoutUser } from '../actions/sessionActions'
-import { getUser } from "../actions/userActions";
+import {logoutUser} from '../actions/sessionActions'
+import {getCurrentUser} from "../actions/userActions";
 
 class HomePage extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class HomePage extends Component {
 
   componentDidMount() {
     const userObject = sessionStorage.getItem('user')
-    this.props.getUser(userObject)
+    this.props.getCurrentUser(userObject)
   }
 
   onClick = (e) => {
@@ -24,9 +24,11 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome {this.props.user}</h1>
+        <h1>Welcome {this.props.current_user}</h1>
         <ul>
-          <li>Refresh sessionReducer on page refresh</li>
+          <li>Join table for rented books</li>
+          <li>Nav</li>
+          <li>Profile page</li>
         </ul>
         <button onClick={this.onClick}>Logout</button>
       </div>
@@ -35,13 +37,13 @@ class HomePage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.userReducer.user
+  current_user: state.userReducer.current_user
 });
 
 
 const mapDispatchToProps = (dispatch) => ({
   logoutUser: () => dispatch(logoutUser()),
-  getUser: (userObject) => dispatch(getUser(userObject)),
+  getCurrentUser: (userObject) => dispatch(getCurrentUser(userObject)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage))

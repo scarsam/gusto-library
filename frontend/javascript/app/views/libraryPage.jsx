@@ -4,10 +4,11 @@ import {withRouter} from 'react-router-dom';
 
 // components
 import {Books} from '../components/books'
-import {loadLibraryBooks} from "../actions/libraryActions";
 
 // actions
-import {removeBook} from "../actions/bookActions";
+import {removeBook} from '../actions/bookActions';
+import {loadLibraryBooks} from '../actions/libraryActions';
+import {getAllUsers} from "../actions/userActions";
 
 class LibraryPage extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class LibraryPage extends Component {
 
   componentDidMount() {
     this.props.loadLibraryBooks();
+    this.props.getAllUsers();
   }
 
   componentDidUpdate(prevProps) {
@@ -31,6 +33,7 @@ class LibraryPage extends Component {
         <Books
           books={this.props.libraryBooks}
           removeBook={this.props.removeBook}
+          users={this.props.users}
         />
       </div>
    )
@@ -40,12 +43,14 @@ class LibraryPage extends Component {
 
 const mapStateToProps = (state) => ({
   libraryBooks: state.libraryReducer.books,
-  isBookRemoved: state.bookReducer.removed
+  isBookRemoved: state.bookReducer.removed,
+  users: state.userReducer.users
 });
 
 const mapDispatchToProps = (dispatch) => ({
   removeBook: (book) => dispatch(removeBook(book)),
-  loadLibraryBooks: () => dispatch(loadLibraryBooks())
+  loadLibraryBooks: () => dispatch(loadLibraryBooks()),
+  getAllUsers: () => dispatch(getAllUsers()),
 });
 
 

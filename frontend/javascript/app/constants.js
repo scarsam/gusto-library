@@ -6,6 +6,9 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
 // User actions
 export const CURRENT_USER_SUCCESS = 'CURRENT_USER_SUCCESS';
+export const ALL_USERS_REQUEST = 'ALL_USERS_REQUEST';
+export const ALL_USERS_SUCCESS = 'ALL_USERS_SUCCESS';
+export const ALL_USERS_FAILURE = 'ALL_USERS_FAILURE';
 
 // Search actions
 export const BOOK_SEARCH_REQUEST = 'BOOK_FORM_REQUEST';

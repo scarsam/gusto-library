@@ -10,5 +10,5 @@ export const rootReducer = combineReducers({
   userReducer,
   searchReducer,
   bookReducer,
-  libraryReducer
+  libraryReducer,
 });
