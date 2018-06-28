@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
 // components
-import {Books} from '../components/books'
+import {Books} from '../components/Books'
 
 // actions
 import {removeBook} from '../actions/bookActions';
