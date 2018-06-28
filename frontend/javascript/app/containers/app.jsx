@@ -9,7 +9,8 @@ import HomePage from './HomePage'
 import BookSearchPage from './BookSearchPage'
 import GoogleLoginPage from './GoogleLoginPage'
 import LibraryPage from './LibraryPage'
-import ProfilePage from './ProfilePage'
+import UsersPage from './UsersPage'
+import UserPage from './UserPage'
 import {Navbar} from "../components/Navbar";
 
 class App extends Component {
@@ -23,7 +24,8 @@ class App extends Component {
               <Route path='/login' component={GoogleLoginPage}/>
               <PrivateRoute path='/books/new' component={BookSearchPage}/>
               <PrivateRoute path='/library' component={LibraryPage}/>
-              <PrivateRoute path='/profile' component={ProfilePage}/>
+              <PrivateRoute path='/users/:id' component={UserPage}/>
+              <PrivateRoute path='/users' component={UsersPage}/>
               <PrivateRoute path='/' component={HomePage}/>
             </Switch>
           </div>

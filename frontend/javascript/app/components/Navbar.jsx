@@ -6,6 +6,6 @@ export const Navbar = () => (
     <NavLink to='/'>Home</NavLink>
     <NavLink to='/books/new'>Add Book</NavLink>
     <NavLink to='/library'>Library</NavLink>
-    <NavLink to='/profile'>Profile</NavLink>
+    <NavLink to='/users'>Users</NavLink>
   </div>
 );

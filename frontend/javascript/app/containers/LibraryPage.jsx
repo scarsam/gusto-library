@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
 // components
-import {Books} from '../components/Books'
+import {BooksList} from '../components/BooksList'
 
 // actions
 import {removeBook} from '../actions/bookActions';
@@ -30,7 +30,7 @@ class LibraryPage extends Component {
     return (
       <div>
         <h1>Library</h1>
-        <Books
+        <BooksList
           books={this.props.libraryBooks}
           removeBook={this.props.removeBook}
           users={this.props.users}

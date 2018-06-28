@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Books = (props) => {
+export const BooksList = (props) => {
   const results = props.books.map((book, index) => (
     <li key={index}>
       <img src={book.thumbnail}/>
