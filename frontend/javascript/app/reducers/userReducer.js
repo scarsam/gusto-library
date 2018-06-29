@@ -9,7 +9,7 @@ import {
 } from "../constants";
 
 let initialState = {
-  current_user: null,
+  current_user: {},
   users: [],
   user: null,
   pending: false,

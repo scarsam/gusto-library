@@ -13,7 +13,7 @@ export const loginUser = (userData) => {
     API.post('/api/v1/sessions', userData.profileObj)
       .then(response => {
         sessionStorage.setItem('jwt', response.data.token);
-        sessionStorage.setItem('user', response.data.user);
+        sessionStorage.setItem('user', JSON.stringify(response.data.user));
         dispatch({type: LOGIN_SUCCESS, payload: response.data});
         history.push('/')
       });

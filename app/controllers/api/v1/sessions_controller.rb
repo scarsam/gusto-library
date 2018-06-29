@@ -10,7 +10,7 @@ module Api
         end
         token = Auth.issue({googleId: @user.googleId})
         render status: 200,
-               json: {token: token, user: @user.name}
+               json: {token: token, user: @user}
       end
 
       private

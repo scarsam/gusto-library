@@ -10,7 +10,7 @@ import {
 import {API} from "../api";
 
 export const getCurrentUser = (userData) => {
-  return {type: CURRENT_USER_SUCCESS, payload: userData}
+  return {type: CURRENT_USER_SUCCESS, payload: JSON.parse(userData)}
 };
 
 export const getUser = (id) => {

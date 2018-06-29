@@ -6,8 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(
+user = User.create(
   email: 'sam@ojling.com',
-  name: 'Sam Ojling',
-  password: 'freshare',
+  name: 'Sam Test',
+  googleId: 'myGoogleId',
+  imageUrl: 'myface.jpg'
 )
+
+user.books.create!(title: 'Test', author: 'Sam Ojling', description: 'Test', thumbnail: 'test.jpg')
+user.rented_books.create!(book_id: Book.last.id)

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create, :index, :show]
+      resources :rented_books, only: [:create, :index]
       resources :sessions, only: [:create]
       resources :books
     end

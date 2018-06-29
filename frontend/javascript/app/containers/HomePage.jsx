@@ -12,8 +12,8 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    const userObject = sessionStorage.getItem('user')
-    this.props.getCurrentUser(userObject)
+    const userObject = sessionStorage.getItem('user');
+    this.props.getCurrentUser(userObject);
   }
 
   onClick = (e) => {
@@ -24,10 +24,16 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome {this.props.current_user}</h1>
+        <h1>Welcome {this.props.current_user.name}</h1>
         <ul>
-          <li>Join table for rented books</li>
-          <li>Profile page</li>
+          <li>Show rented books under user profile</li>
+          <li>Rent / Return button** Render based on store</li>
+          <li>Book page</li>
+          <li>Short book description on BookList</li>
+          <li>User profile in nav</li>
+          <li>Shallow resources for User > Books</li>
+          <li>Check token validation on backend</li>
+          <li>Style</li>
         </ul>
         <button onClick={this.onClick}>Logout</button>
       </div>
