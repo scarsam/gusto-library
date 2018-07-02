@@ -23,9 +23,7 @@ class BookSearchPage extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.searchQuery !== this.props.searchQuery) {
-      this.props.searchInput(this.props.searchQuery)
-    }
-    if (prevProps.isBookAdded !== this.props.isBookAdded) {
+      this.props.searchInput(this.props.searchQuery);
       this.props.loadLibraryBooks();
     }
   }
@@ -42,7 +40,6 @@ class BookSearchPage extends Component {
           pending={this.props.pending}
           searchResults={this.props.searchResults}
           libraryBooks={this.props.libraryBooks}
-          addedBook={this.props.addedBook}
         />
       </div>
     );
@@ -53,10 +50,7 @@ const mapStateToProps = (state) => ({
   searchQuery: state.searchReducer.searchQuery,
   searchResults: state.searchReducer.searchResults,
   pending: state.searchReducer.pending,
-  libraryBooks: state.libraryReducer.books,
-  addedBook: state.bookReducer.book,
-  isBookAdded: state.bookReducer.added
-
+  libraryBooks: state.libraryReducer.books
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,11 +1,13 @@
 const API_KEY = `${process.env.REACT_APP_API_KEY_GOOGLE_BOOKS}`;
+import {API} from "../api";
+import axios from 'axios';
+
 import {
   BOOK_SEARCH_REQUEST,
   BOOK_SEARCH_SUCCESS,
   BOOK_SEARCH_UPDATE,
-  BOOK_SEARCH_RESET
+  BOOK_SEARCH_RESET,
 } from "../constants";
-import axios from 'axios';
 
 export const searchInput = (formData) => {
   this.search = formData;

@@ -26,13 +26,14 @@ class HomePage extends Component {
       <div>
         <h1>Welcome {this.props.current_user.name}</h1>
         <ul>
+          <li>Filter inside redux</li>
+          <li>Update to rental status join table?</li>
           <li>Show rented books under user profile</li>
-          <li>Rent / Return button** Render based on store</li>
           <li>Book page</li>
           <li>Short book description on BookList</li>
           <li>User profile in nav</li>
-          <li>Shallow resources for User > Books</li>
           <li>Check token validation on backend</li>
+          <li>Check if I treat Arrays correctly in Redux store</li>
           <li>Style</li>
         </ul>
         <button onClick={this.onClick}>Logout</button>
