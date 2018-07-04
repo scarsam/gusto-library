@@ -50,7 +50,7 @@ const mapStateToProps = (state) => ({
   searchQuery: state.searchReducer.searchQuery,
   searchResults: state.searchReducer.searchResults,
   pending: state.searchReducer.pending,
-  libraryBooks: state.libraryReducer.books
+  libraryBooks: state.libraryReducer.availableBooks
 });
 
 const mapDispatchToProps = (dispatch) => ({

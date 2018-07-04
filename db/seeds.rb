@@ -13,5 +13,15 @@ user = User.create(
   imageUrl: 'myface.jpg'
 )
 
+user.books.create!(title: 'Freshness', author: 'King JR', description: 'This is just a test...', thumbnail: 'test.jpg')
 user.books.create!(title: 'Test', author: 'Sam Ojling', description: 'Test', thumbnail: 'test.jpg')
 user.rented_books.create!(book_id: Book.last.id)
+
+user2 = User.create(
+  email: 'karl@ojling.com',
+  name: 'Erik Karl',
+  googleId: 'myGooaagleId',
+  imageUrl: 'myface.jpg'
+)
+
+user2.books.create!(title: 'Karlsson', author: 'Erik J Karlsson', description: 'Fresh', thumbnail: 'test.jpg')

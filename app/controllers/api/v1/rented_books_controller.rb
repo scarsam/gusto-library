@@ -19,8 +19,17 @@ module Api
         head :no_content
       end
 
+      def user
+        user = RentedBook.find_by(book_id: params[:id]).user
+        if user
+          render json: user
+        else
+          render status: 409, json: user.errors.full_messages
+        end
+      end
+
       def index
-        rented_books = Book.joins(:rented_book)
+        rented_books = RentedBook.all
         if rented_books
           render json: rented_books
         else
