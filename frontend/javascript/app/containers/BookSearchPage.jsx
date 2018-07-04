@@ -40,6 +40,7 @@ class BookSearchPage extends Component {
           pending={this.props.pending}
           searchResults={this.props.searchResults}
           libraryBooks={this.props.libraryBooks}
+          rentedBooks={this.props.rentedBooks}
         />
       </div>
     );
@@ -50,7 +51,8 @@ const mapStateToProps = (state) => ({
   searchQuery: state.searchReducer.searchQuery,
   searchResults: state.searchReducer.searchResults,
   pending: state.searchReducer.pending,
-  libraryBooks: state.libraryReducer.availableBooks
+  libraryBooks: state.libraryReducer.availableBooks,
+  rentedBooks: state.libraryReducer.rentedBooks
 });
 
 const mapDispatchToProps = (dispatch) => ({

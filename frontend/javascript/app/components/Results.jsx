@@ -1,9 +1,10 @@
 import React from 'react'
 
-export const Results = ({libraryBooks, searchResults, addBook, pending}) => {
+export const Results = ({libraryBooks, rentedBooks, searchResults, addBook, pending}) => {
   const filteredResults = searchResults
     .filter(book => filterUndefined(book))
-    .filter(book => libraryBooks.findIndex(libBook => libBook.title === book.volumeInfo.title) === -1)
+    .filter(book => libraryBooks.findIndex(libraryBook => libraryBook.title === book.volumeInfo.title) === -1)
+    .filter(book => rentedBooks.findIndex(rentedBook => rentedBook.title === book.volumeInfo.title) === -1);
   const results = filteredResults
     .map((book, index) => (
     <li key={index}>
