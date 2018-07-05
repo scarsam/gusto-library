@@ -5,7 +5,10 @@ import {
   ALL_USERS_FAILURE,
   GET_USER_REQUEST,
   GET_USER_SUCCESS,
-  GET_USER_FAILURE
+  GET_USER_FAILURE,
+  GET_USER_BOOKS_REQUEST,
+  GET_USER_BOOKS_SUCCESS,
+  GET_USER_BOOKS_FAILURE
 } from "../constants";
 import {API} from "../api";
 
@@ -21,7 +24,20 @@ export const getUser = (id) => {
         dispatch({type: GET_USER_SUCCESS, payload: response.data})
       })
       .catch(error => {
-        dispatch({type: GET_USER_FAILURE, payload: error.data})
+        dispatch({type: GET_USER_FAILURE, payload: error.response.data})
+      })
+  }
+};
+
+export const getUserBooks = (id) => {
+  return dispatch => {
+    dispatch({type: GET_USER_BOOKS_REQUEST});
+    API.get(`/api/v1/users/${id}/rented_books`)
+      .then(response => {
+        dispatch({type: GET_USER_BOOKS_SUCCESS, payload: response.data});
+      })
+      .catch(error => {
+        dispatch({type: GET_USER_BOOKS_FAILURE, payload: error.response.data});
       })
   }
 };
@@ -34,7 +50,7 @@ export const getAllUsers = () => {
         dispatch({type: ALL_USERS_SUCCESS, payload: response.data})
       })
       .catch(error => {
-        dipatch({type: ALL_USERS_FAILURE, payload: error.data})
+        dipatch({type: ALL_USERS_FAILURE, payload: error.response.data})
       })
   }
 };

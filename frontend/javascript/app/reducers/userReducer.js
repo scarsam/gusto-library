@@ -5,13 +5,17 @@ import {
   ALL_USERS_FAILURE,
   GET_USER_REQUEST,
   GET_USER_SUCCESS,
-  GET_USER_FAILURE
+  GET_USER_FAILURE,
+  GET_USER_BOOKS_REQUEST,
+  GET_USER_BOOKS_SUCCESS,
+  GET_USER_BOOKS_FAILURE
 } from "../constants";
 
 let initialState = {
   current_user: {},
   users: [],
   user: null,
+  userBooks: [],
   pending: false,
   error: null,
 };
@@ -32,6 +36,12 @@ export const userReducer = (state = initialState, action) => {
     case GET_USER_SUCCESS:
       return {...state, pending: false, user: payload};
     case GET_USER_FAILURE:
+      return {...state, pending: false, error: payload};
+    case GET_USER_BOOKS_REQUEST:
+      return {...state, pending: true};
+    case GET_USER_BOOKS_SUCCESS:
+      return {...state, pending: false, userBooks: payload};
+    case GET_USER_BOOKS_FAILURE:
       return {...state, pending: false, error: payload};
     default:
       return state
