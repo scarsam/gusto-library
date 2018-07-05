@@ -11,6 +11,9 @@ import {
   RENTED_BOOKS_REQUEST,
   RENTED_BOOKS_SUCCESS,
   RENTED_BOOKS_FAILURE,
+  RETURN_BOOK_REQUEST,
+  RETURN_BOOK_SUCCESS,
+  RETURN_BOOK_FAILURE,
 } from "../constants";
 
 let initialState = {
@@ -74,6 +77,16 @@ export const libraryReducer = (state = initialState, action) => {
         availableBooks: state.availableBooks.filter(book => book.id !== payload.book_id),
       };
     case RENT_BOOK_FAILURE:
+      return {...state, error: payload};
+    case RETURN_BOOK_REQUEST:
+      return {...state, pending: true};
+    case RETURN_BOOK_SUCCESS:
+      return {
+        ...state,
+        rentedBooks: state.rentedBooks.filter(book => book.id !== payload.id),
+        availableBooks: [...state.availableBooks, payload]
+      };
+    case RETURN_BOOK_FAILURE:
       return {...state, error: payload};
     default:
       return state

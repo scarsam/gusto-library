@@ -14,7 +14,7 @@ module Api
       end
 
       def destroy
-        rented_book = RentedBook.find(params[:id])
+        rented_book = RentedBook.find_by(book_id: params[:id])
         rented_book.destroy
         head :no_content
       end

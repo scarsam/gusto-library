@@ -30,7 +30,7 @@ export const rentBook = (book) => {
 export const returnBook = (book) => {
   return dispatch => {
     dispatch({type: RETURN_BOOK_REQUEST});
-    API.delete('/api/v1/rented_books', book)
+    API.delete(`/api/v1/rented_books/${book.id}`)
       .then(response => {
         dispatch({type: RETURN_BOOK_SUCCESS, payload: book})
       })

@@ -52,7 +52,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   removeBook: (book) => dispatch(removeBook(book)),
   rentBook: (book) => dispatch(rentBook(book)),
-  returnBook: (book) => dispatch(rentBook(book)),
+  returnBook: (book) => dispatch(returnBook(book)),
   loadLibraryBooks: () => dispatch(loadLibraryBooks()),
   getAllUsers: () => dispatch(getAllUsers()),
   getCurrentUser: (userObject) => dispatch(getCurrentUser(userObject)),
