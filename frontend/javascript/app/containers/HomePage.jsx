@@ -26,12 +26,6 @@ class HomePage extends Component {
       <div>
         <h1>Welcome {this.props.current_user.name}</h1>
         <ul>
-          <li>Search - short description</li>
-          <li>Library - long description</li>
-          <li>Rented Books - short description</li>
-          <li>Nested routes?</li>
-          <li>Pending states</li>
-          <li>Check status codes</li>
           <li>Add comments for complex reducers</li>
           <li>User profile in nav</li>
           <li>Check token validation on backend</li>

@@ -6,7 +6,7 @@ module Api
         if users
           render json: users
         else
-          render status: 404, json: users.errors.full_messages
+          render status: 400, json: users.errors.full_messages
         end
       end
 
@@ -16,7 +16,7 @@ module Api
         if rented_books
           render json: rented_books
         else
-          render status: 404, json: rented_books.errors.full_messages
+          render status: 400, json: rented_books.errors.full_messages
         end
       end
 
@@ -25,7 +25,7 @@ module Api
         if user
           render json: user
         else
-          render status: 404, json: user.errors.full_messages
+          render status: 400, json: user.errors.full_messages
         end
       end
     end

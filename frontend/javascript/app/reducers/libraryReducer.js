@@ -83,6 +83,7 @@ export const libraryReducer = (state = initialState, action) => {
     case RETURN_BOOK_SUCCESS:
       return {
         ...state,
+        pending: false,
         rentedBooks: state.rentedBooks.filter(book => book.id !== payload.id),
         availableBooks: [...state.availableBooks, payload]
       };

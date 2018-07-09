@@ -14,7 +14,7 @@ module Api
           book.save
           render json: book
         else
-          render status: 409, json: book.errors.full_messages
+          render status: 400, json: book.errors.full_messages
         end
       end
 

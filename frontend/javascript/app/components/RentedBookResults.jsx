@@ -5,12 +5,9 @@ export const RentedBookResults = ({results, current_user, returnBook, users}) =>
     const userName = returnUserName(book.rented_user, users);
     return (
       <li key={index}>
-        <img src={book.thumbnail}/>
         <p>{book.title}</p>
-        <p>{book.authors}</p>
-        <p>{book.description}</p>
         <p>Rented by: {userName}</p>
-        {userName === current_user.name ? <button onClick={() => returnBook(book)}>Return Book</button> : ''}
+        {userName === current_user.name ? <button onClick={() => returnBook(book)}>Return Book</button> : null}
       </li>
     );
   });

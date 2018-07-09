@@ -9,7 +9,7 @@ module Api
           rented_book.save
           render json: rented_book
         else
-          render status: 409, json: rented_book.errors.full_messages
+          render status: 400, json: rented_book.errors.full_messages
         end
       end
 
@@ -24,7 +24,7 @@ module Api
         if user
           render json: user
         else
-          render status: 409, json: user.errors.full_messages
+          render status: 400, json: user.errors.full_messages
         end
       end
 
@@ -33,7 +33,7 @@ module Api
         if rented_books
           render json: rented_books
         else
-          render status: 404, json: rented_books.errors.full_messages
+          render status: 400, json: rented_books.errors.full_messages
         end
       end
     end

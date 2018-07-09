@@ -28,16 +28,21 @@ class LibraryPage extends Component {
   }
 
   render() {
-    const {libraryBooks, rentedBooks} = this.props;
+    const {libraryBooks, rentedBooks, pending} = this.props;
 
-    return (
-      <div>
-        <h1>Library</h1>
-        <LibraryBookResults {...this.props} results={libraryBooks} />
-        <h1>Rented Books</h1>
-        <RentedBookResults {...this.props} results={rentedBooks}/>
-      </div>
-    )
+    if (pending === true) {
+      return <p>Loading..</p>
+    } else {
+      return (
+        <div>
+
+          <h1>Library</h1>
+          <LibraryBookResults {...this.props} results={libraryBooks} />
+          <h1>Rented Books</h1>
+          <RentedBookResults {...this.props} results={rentedBooks}/>
+        </div>
+      )
+    }
   }
 
 }
@@ -45,6 +50,7 @@ class LibraryPage extends Component {
 const mapStateToProps = (state) => ({
   libraryBooks: state.libraryReducer.availableBooks,
   rentedBooks: state.libraryReducer.rentedBooks,
+  pending: state.libraryReducer.pending,
   users: state.userReducer.users,
   current_user: state.userReducer.current_user,
 });
