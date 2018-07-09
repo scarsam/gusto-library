@@ -20,7 +20,7 @@ class LibraryPage extends Component {
   }
 
   componentDidMount() {
-    const {getCurrentUser, getAllUsers, loadLibraryBooks, loadRentedBooks} = this.props;
+    const {getCurrentUser, getAllUsers, loadLibraryBooks} = this.props;
     const userObject = sessionStorage.getItem('user');
     getCurrentUser(userObject);
     getAllUsers();
@@ -35,7 +35,6 @@ class LibraryPage extends Component {
     } else {
       return (
         <div>
-
           <h1>Library</h1>
           <LibraryBookResults {...this.props} results={libraryBooks} />
           <h1>Rented Books</h1>

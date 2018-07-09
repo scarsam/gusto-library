@@ -1,11 +1,11 @@
 import React from 'react';
 
-export const User = ({user, pending}) => {
-  if (pending === false && user !== null) {
-    return (
+export const User = ({user, userRentedBooks}) => {
+  return (
+    <li>
+      <img src={user.imageUrl}/>
       <p>{user.name}</p>
-    )
-  } else {
-    return <p>Loading...</p>
-  }
+      <p>Rented books: {userRentedBooks ? userRentedBooks.length : null}</p>
+    </li>
+  )
 };
