@@ -23,16 +23,25 @@ class UsersList extends Component {
     const {users, rentedBooks, pending} = this.props;
     const userList = users.map((user, index) => {
       const userRentedBooks = rentedBooks.filter(rentedBook => rentedBook.rented_user === user.id);
-      return <User key={index} user={user} userRentedBooks={userRentedBooks} />
+      return <User index={index} user={user} userRentedBooks={userRentedBooks} />
     });
     if (pending === true) {
       return <p>Loading..</p>
     } else {
       return (
-        <div>
-          <h1>Users</h1>
-          <ul>{userList}</ul>
-        </div>
+        <table className='table'>
+          <thead>
+          <tr>
+            <th scope='col'>#</th>
+            <th scope='col'>Profile Picture</th>
+            <th scope='col'>Name</th>
+            <th scope='col'>Number of Rented Books</th>
+          </tr>
+          </thead>
+          <tbody>
+            {userList}
+          </tbody>
+        </table>
       )
     }
   }

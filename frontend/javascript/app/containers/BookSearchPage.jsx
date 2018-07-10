@@ -30,18 +30,22 @@ class BookSearchPage extends Component {
 
   render() {
     return (
-      <div>
-        <Search
-          handleChange={this.props.updateSearchInput}
-          searchQuery={this.props.searchQuery}
-        />
+      <div className='row'>
+        <div className='col-sm-12 mb-3'>
+          <Search
+            handleChange={this.props.updateSearchInput}
+            searchQuery={this.props.searchQuery}
+          />
+        </div>
+        <div className='col-sm-12'>
         <Results
-          addBook={this.props.addBook}
-          pending={this.props.pending}
-          searchResults={this.props.searchResults}
-          libraryBooks={this.props.libraryBooks}
-          rentedBooks={this.props.rentedBooks}
-        />
+            addBook={this.props.addBook}
+            pending={this.props.pending}
+            searchResults={this.props.searchResults}
+            libraryBooks={this.props.libraryBooks}
+            rentedBooks={this.props.rentedBooks}
+          />
+        </div>
       </div>
     );
   }

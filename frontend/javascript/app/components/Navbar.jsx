@@ -3,11 +3,18 @@ import {NavLink} from 'react-router-dom';
 import {logoutUser} from '../actions/sessionActions'
 
 export const Navbar = () => (
-  <div>
-    <NavLink to='/'>Home</NavLink>
-    <NavLink to='/books/new'>Add Book</NavLink>
-    <NavLink to='/library'>Library</NavLink>
-    <NavLink to='/users'>Users</NavLink>
-    <button onClick={() => logoutUser()}>Logout</button>
-  </div>
+  <ul className='nav justify-content-center'>
+    <li className='nav-item'>
+      <NavLink className='nav-link' to='/'>Add Book</NavLink>
+    </li>
+    <li className='nav-item'>
+      <NavLink className='nav-link' to='/library'>Library</NavLink>
+    </li>
+    <li className='nav-item'>
+      <NavLink className='nav-link' to='/users'>Users</NavLink>
+    </li>
+    <li className='nav-item'>
+      <a className='nav-link' onClick={() => logoutUser()}>Logout</a>
+    </li>
+  </ul>
 );

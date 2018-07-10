@@ -4,15 +4,30 @@ export const RentedBookResults = ({results, current_user, returnBook, users}) =>
   const rentedBookResults = results.map((book, index) => {
     const userName = returnUserName(book.rented_user, users);
     return (
-      <li key={index}>
-        <p>{book.title}</p>
-        <p>Rented by: {userName}</p>
-        {userName === current_user.name ? <button onClick={() => returnBook(book)}>Return Book</button> : null}
-      </li>
+      <tr key={index}>
+        <th scope='row'>{index}</th>
+        <td>{book.title}</td>
+        <td>{userName}</td>
+        <td>{userName === current_user.name ?
+          <a className='text-primary' onClick={() => returnBook(book)}>Return Book</a> : null
+        }</td>
+      </tr>
     );
   });
   return (
-    <ul>{rentedBookResults}</ul>
+    <table className='table'>
+      <thead>
+      <tr>
+        <th scope='col'>#</th>
+        <th scope='col'>Book Title</th>
+        <th scope='col'>Rented By</th>
+        <th scope='col'>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+        {rentedBookResults}
+      </tbody>
+    </table>
   )
 };
 

@@ -1,11 +1,12 @@
 import React from 'react';
 
-export const User = ({user, userRentedBooks}) => {
+export const User = ({index, user, userRentedBooks}) => {
   return (
-    <li>
-      <img src={user.imageUrl}/>
-      <p>{user.name}</p>
-      <p>Rented books: {userRentedBooks ? userRentedBooks.length : null}</p>
-    </li>
+    <tr key={index}>
+      <th scope='row'>{index}</th>
+      <td><img class='image-profile' src={user.imageUrl}/></td>
+      <td>{user.name}</td>
+      <td>{userRentedBooks ? userRentedBooks.length : null}</td>
+    </tr>
   )
 };

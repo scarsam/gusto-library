@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
+import 'bootstrap/dist/css/bootstrap'
 import {Router, Route, Switch} from 'react-router-dom';
 import {PrivateRoute} from "../components/PrivateRoute";
 import {Provider} from 'react-redux';
 import {store} from '../store/reduxStore';
 import history from '../history'
 
-import HomePage from './HomePage'
 import BookSearchPage from './BookSearchPage'
 import GoogleLoginPage from './GoogleLoginPage'
 import LibraryPage from './LibraryPage'
@@ -17,14 +17,13 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router history={history}>
-          <div>
+          <div className='container'>
             <Navbar/>
             <Switch>
               <Route path='/login' component={GoogleLoginPage}/>
-              <PrivateRoute path='/books/new' component={BookSearchPage}/>
               <PrivateRoute path='/library' component={LibraryPage}/>
               <PrivateRoute path='/users' component={UsersList}/>
-              <PrivateRoute path='/' component={HomePage}/>
+              <PrivateRoute path='/' component={BookSearchPage}/>
             </Switch>
           </div>
         </Router>

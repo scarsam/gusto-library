@@ -1,0 +1,13 @@
+.card-columns {
+  column-count: 4;
+  .card-img-top {
+    height: 260px;
+    object-fit: cover;
+  }
+}
+
+.image-profile {
+  border-radius: 50%;
+  height: 35px;
+  width: auto;
+}
