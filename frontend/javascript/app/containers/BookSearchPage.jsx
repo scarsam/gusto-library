@@ -32,6 +32,12 @@ class BookSearchPage extends Component {
     return (
       <div className='row'>
         <h1>Search for books</h1>
+        <h1>Serialize JSON</h1>
+        <h1>Book added</h1>
+        <h1>Book removed</h1>
+        <h1>Google login</h1>
+        <h1>Hide nav on login</h1>
+        <h1>Loading state</h1>
         <div className='col-sm-12 mb-3'>
           <Search
             handleChange={this.props.updateSearchInput}

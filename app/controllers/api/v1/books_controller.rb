@@ -12,7 +12,7 @@ module Api
         )
         if book.valid?
           book.save
-          render json: book
+          render json: book, status: 200
         else
           render status: 400, json: book.errors.full_messages
         end
@@ -20,7 +20,7 @@ module Api
 
       def index
         books = Book.all
-        render json: books
+        render json: books, status: 200
       end
 
       def destroy

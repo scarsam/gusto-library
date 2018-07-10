@@ -4,9 +4,9 @@ module Api
       def index
         users = User.all
         if users
-          render json: users
+          render json: users, status: 200
         else
-          render status: 400, json: users.errors.full_messages
+          render json: users.errors.full_messages, status: 400
         end
       end
 
@@ -14,18 +14,18 @@ module Api
         user = User.find(params[:id])
         rented_books = user.rented_books
         if rented_books
-          render json: rented_books
+          render json: rented_books, status: 200
         else
-          render status: 400, json: rented_books.errors.full_messages
+          render json: rented_books.errors.full_messages, status: 400
         end
       end
 
       def show
         user = User.find(params[:id])
         if user
-          render json: user
+          render json: user, status: 200
         else
-          render status: 400, json: user.errors.full_messages
+          render json: user.errors.full_messages, status: 400
         end
       end
     end

@@ -7,9 +7,9 @@ module Api
         rented_book = RentedBook.new(book: book, user: current_user)
         if rented_book.valid?
           rented_book.save
-          render json: rented_book
+          render json: rented_book, status: 200
         else
-          render status: 400, json: rented_book.errors.full_messages
+          render json: rented_book.errors.full_messages, status: 400
         end
       end
 
@@ -22,18 +22,18 @@ module Api
       def user
         user = RentedBook.find_by(book_id: params[:id]).user
         if user
-          render json: user
+          render json: user, status: 200
         else
-          render status: 400, json: user.errors.full_messages
+          render json: user.errors.full_messages, status: 400
         end
       end
 
       def index
         rented_books = RentedBook.all
         if rented_books
-          render json: rented_books
+          render json: rented_books, status: 200
         else
-          render status: 400, json: rented_books.errors.full_messages
+          render json: rented_books.errors.full_messages, status: 400
         end
       end
     end
