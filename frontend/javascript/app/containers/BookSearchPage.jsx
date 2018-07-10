@@ -31,6 +31,7 @@ class BookSearchPage extends Component {
   render() {
     return (
       <div className='row'>
+        <h1>Search for books</h1>
         <div className='col-sm-12 mb-3'>
           <Search
             handleChange={this.props.updateSearchInput}

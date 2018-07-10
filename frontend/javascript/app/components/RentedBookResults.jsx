@@ -32,6 +32,8 @@ export const RentedBookResults = ({results, current_user, returnBook, users}) =>
 };
 
 export const returnUserName = (rented_user, users) => {
-  let user = users.find(user => user.id === rented_user);
-  return user.name
+  if (rented_user) {
+    let user = users.find(user => user.id === rented_user);
+    return user.name
+  }
 };

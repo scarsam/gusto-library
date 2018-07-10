@@ -29,19 +29,22 @@ class UsersList extends Component {
       return <p>Loading..</p>
     } else {
       return (
-        <table className='table'>
-          <thead>
-          <tr>
-            <th scope='col'>#</th>
-            <th scope='col'>Profile Picture</th>
-            <th scope='col'>Name</th>
-            <th scope='col'>Number of Rented Books</th>
-          </tr>
-          </thead>
-          <tbody>
-            {userList}
-          </tbody>
-        </table>
+        <div>
+        <h1>Users</h1>
+          <table className='table'>
+            <thead>
+            <tr>
+              <th scope='col'>#</th>
+              <th scope='col'>Profile Picture</th>
+              <th scope='col'>Name</th>
+              <th scope='col'>Currently Rented Books</th>
+            </tr>
+            </thead>
+            <tbody>
+              {userList}
+            </tbody>
+          </table>
+        </div>
       )
     }
   }
