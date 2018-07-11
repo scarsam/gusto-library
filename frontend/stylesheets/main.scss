@@ -1,3 +1,4 @@
+
 .card-columns {
   column-count: 4;
   .card-img-top {
@@ -20,4 +21,20 @@
   text-align: center;
   width: 100%;
   z-index: 99;
+}
+
+.google-login {
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  padding: 12px 16px;
+  span {
+    padding-left: 12px;
+  }
+}
+
+.height-100vh {
+  height: 100vh;
 }

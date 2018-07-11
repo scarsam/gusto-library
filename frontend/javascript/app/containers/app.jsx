@@ -10,7 +10,7 @@ import BookSearchPage from './BookSearchPage'
 import GoogleLoginPage from './GoogleLoginPage'
 import LibraryPage from './LibraryPage'
 import UsersList from './UsersList'
-import {Navbar} from "../components/Navbar";
+import NavBar from "../containers/NavBar";
 
 class App extends Component {
   render() {
@@ -18,7 +18,7 @@ class App extends Component {
       <Provider store={store}>
         <Router history={history}>
           <div className='container'>
-            <Navbar/>
+            <NavBar/>
             <Switch>
               <Route path='/login' component={GoogleLoginPage}/>
               <PrivateRoute path='/library' component={LibraryPage}/>

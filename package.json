@@ -2,6 +2,10 @@
   "name": "gusto-library",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
+    "@fortawesome/free-brands-svg-icons": "^5.1.0-11",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "^0.1.0-11",
     "@rails/webpacker": "3.5",
     "add": "^2.0.6",
     "axios": "^0.18.0",
@@ -17,6 +21,7 @@
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.3.0",
+    "typeface-roboto": "0.0.54",
     "yarn": "^1.7.0"
   },
   "devDependencies": {

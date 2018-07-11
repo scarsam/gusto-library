@@ -34,8 +34,6 @@ class BookSearchPage extends Component {
     return (
       <div className='row'>
         <h1>Search for books</h1>
-        <h1>Google login</h1>
-        <h1>Hide nav on login</h1>
         <h1>Loading state</h1>
         {message ? <div className='alert alert-success success-banner' role='alert'>{message}</div> : null}
         <div className='col-sm-12 mb-3'>

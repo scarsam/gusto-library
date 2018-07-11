@@ -1,8 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import {logoutUser} from '../actions/sessionActions'
 
-export const Navbar = () => (
+export const NavLinks = ({logout}) => (
   <ul className='nav justify-content-center'>
     <li className='nav-item'>
       <NavLink className='nav-link' to='/'>Add Book</NavLink>
@@ -14,7 +13,7 @@ export const Navbar = () => (
       <NavLink className='nav-link' to='/users'>Users</NavLink>
     </li>
     <li className='nav-item'>
-      <a className='nav-link' onClick={() => logoutUser()}>Logout</a>
+      <a className='nav-link' onClick={() => logout()}>Logout</a>
     </li>
   </ul>
 );
