@@ -29,28 +29,28 @@ class BookSearchPage extends Component {
   }
 
   render() {
+    const {libraryBooks, updateSearchInput, searchQuery, rentedBooks, searchResults, pending, addBook, message} = this.props;
+
     return (
       <div className='row'>
         <h1>Search for books</h1>
-        <h1>Serialize JSON</h1>
-        <h1>Book added</h1>
-        <h1>Book removed</h1>
         <h1>Google login</h1>
         <h1>Hide nav on login</h1>
         <h1>Loading state</h1>
+        {message ? <div className='alert alert-success success-banner' role='alert'>{message}</div> : null}
         <div className='col-sm-12 mb-3'>
           <Search
-            handleChange={this.props.updateSearchInput}
-            searchQuery={this.props.searchQuery}
+            handleChange={updateSearchInput}
+            searchQuery={searchQuery}
           />
         </div>
         <div className='col-sm-12'>
         <Results
-            addBook={this.props.addBook}
-            pending={this.props.pending}
-            searchResults={this.props.searchResults}
-            libraryBooks={this.props.libraryBooks}
-            rentedBooks={this.props.rentedBooks}
+            addBook={addBook}
+            pending={pending}
+            searchResults={searchResults}
+            libraryBooks={libraryBooks}
+            rentedBooks={rentedBooks}
           />
         </div>
       </div>
@@ -63,7 +63,8 @@ const mapStateToProps = (state) => ({
   searchResults: state.searchReducer.searchResults,
   pending: state.searchReducer.pending,
   libraryBooks: state.libraryReducer.availableBooks,
-  rentedBooks: state.libraryReducer.rentedBooks
+  rentedBooks: state.libraryReducer.rentedBooks,
+  message: state.notificationReducer.notification,
 });
 
 const mapDispatchToProps = (dispatch) => ({

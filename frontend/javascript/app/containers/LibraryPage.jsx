@@ -26,13 +26,13 @@ class LibraryPage extends Component {
   }
 
   render() {
-    const {libraryBooks, rentedBooks, pending} = this.props;
-
+    const {libraryBooks, rentedBooks, pending, message} = this.props;
     if (pending === true) {
       return <p>Loading..</p>
     } else {
       return (
         <div>
+          {message ? <div className='alert alert-success success-banner' role='alert'>{message}</div> : null}
           <h1>Library</h1>
           <LibraryBookResults {...this.props} results={libraryBooks} />
           <h1>Rented Books</h1>
@@ -49,6 +49,7 @@ const mapStateToProps = (state) => ({
   rentedBooks: state.libraryReducer.rentedBooks,
   pending: state.libraryReducer.pending,
   current_user: state.userReducer.current_user,
+  message: state.notificationReducer.notification,
 });
 
 const mapDispatchToProps = (dispatch) => ({

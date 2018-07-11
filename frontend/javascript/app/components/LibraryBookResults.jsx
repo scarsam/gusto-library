@@ -14,7 +14,7 @@ export const LibraryBookResults = ({results, current_user, rentBook, removeBook}
               <p className='card-text'>{book.authors}</p>
               <p className='card-text'>{book.description}</p>
               <button className='btn btn-primary mr-2' onClick={() => rentBook(book)}>Rent Book</button>
-              {current_user.id === book.user_id ?
+              {current_user.id === book.user.id ?
                 <button className='btn btn-danger' onClick={() => removeBook(book)}>Remove from Library</button> : null
               }
             </div>

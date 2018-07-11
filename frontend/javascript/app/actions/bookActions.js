@@ -10,7 +10,9 @@ import {
   REMOVE_BOOK_REQUEST,
   ADD_BOOK_FAILURE,
   ADD_BOOK_SUCCESS,
-  ADD_BOOK_REQUEST
+  ADD_BOOK_REQUEST,
+  SHOW_NOTIFICATION,
+  HIDE_NOTIFICATION,
 } from "../constants";
 import {API} from "../api";
 
@@ -23,6 +25,12 @@ export const rentBook = (book) => {
       })
       .catch(error => {
         dispatch({type: RENT_BOOK_FAILURE, payload: error.data})
+      })
+      .then(() => {
+        dispatch({type: SHOW_NOTIFICATION, payload: 'Book Rented from Library'});
+        setTimeout(() => {
+          dispatch({type: HIDE_NOTIFICATION, payload: null});
+        }, 3000)
       })
   }
 };
@@ -37,6 +45,12 @@ export const returnBook = (book) => {
       .catch(error => {
         dispatch({type: RETURN_BOOK_FAILURE, payload: error.data})
       })
+      .then(() => {
+        dispatch({type: SHOW_NOTIFICATION, payload: 'Book Returned to Library'});
+        setTimeout(() => {
+          dispatch({type: HIDE_NOTIFICATION, payload: null});
+        }, 3000)
+      })
   }
 };
 
@@ -50,6 +64,12 @@ export const removeBook = (book) => {
       .catch(error => {
         dispatch({type: REMOVE_BOOK_FAILURE, payload: 'Failed to remove book'})
       })
+      .then(() => {
+        dispatch({type: SHOW_NOTIFICATION, payload: 'Book Removed from Library'});
+        setTimeout(() => {
+          dispatch({type: HIDE_NOTIFICATION, payload: null});
+        }, 3000)
+      })
   }
 };
 
@@ -62,6 +82,12 @@ export const addBook = (book) => {
       })
       .catch(error => {
         dispatch({type: ADD_BOOK_FAILURE, payload: error.data})
+      })
+      .then(() => {
+        dispatch({type: SHOW_NOTIFICATION, payload: 'Book Added to Library'});
+        setTimeout(() => {
+          dispatch({type: HIDE_NOTIFICATION, payload: null});
+        }, 3000)
       })
   }
 };
