@@ -1,14 +1,14 @@
 import React from 'react'
 
-export const RentedBookResults = ({results, current_user, returnBook, users}) => {
+export const RentedBookResults = ({results, current_user, returnBook}) => {
   const rentedBookResults = results.map((book, index) => {
-    const userName = returnUserName(book.rented_user, users);
+    const rented_book = book.rented_book;
     return (
       <tr key={index}>
         <th scope='row'>{index}</th>
         <td>{book.title}</td>
-        <td>{userName}</td>
-        <td>{userName === current_user.name ?
+        <td>{rented_book.user.name}</td>
+        <td>{rented_book.user_id === current_user.id ?
           <a className='text-primary' onClick={() => returnBook(book)}>Return Book</a> : null
         }</td>
       </tr>
@@ -29,11 +29,4 @@ export const RentedBookResults = ({results, current_user, returnBook, users}) =>
       </tbody>
     </table>
   )
-};
-
-export const returnUserName = (rented_user, users) => {
-  if (rented_user !== undefined) {
-    let user = users.find(user => user.id === rented_user);
-    return user.name
-  }
 };

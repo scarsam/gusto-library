@@ -20,7 +20,7 @@ module Api
 
       def index
         books = Book.all
-        render json: books, status: 200
+        render json: books, include: ['user', 'rented_book.user'], status: 200
       end
 
       def destroy

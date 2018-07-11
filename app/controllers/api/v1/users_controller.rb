@@ -4,7 +4,7 @@ module Api
       def index
         users = User.all
         if users
-          render json: users, status: 200
+          render json: users, include: ['rented_books'], status: 200
         else
           render json: users.errors.full_messages, status: 400
         end

@@ -1,4 +1,5 @@
 class RentedBookSerializer < ActiveModel::Serializer
-  attributes :id
-  belongs_to :user, :book
+  attributes :id, :user_id, :book_id
+  belongs_to :user
+  belongs_to :book
 end

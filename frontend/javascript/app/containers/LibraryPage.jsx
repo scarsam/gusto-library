@@ -11,7 +11,6 @@ import {removeBook} from '../actions/bookActions';
 import {rentBook} from '../actions/bookActions'
 import {returnBook} from '../actions/bookActions'
 import {loadLibraryBooks} from '../actions/libraryActions';
-import {getAllUsers} from '../actions/userActions';
 import {getCurrentUser} from '../actions/userActions';
 
 class LibraryPage extends Component {
@@ -20,10 +19,9 @@ class LibraryPage extends Component {
   }
 
   componentDidMount() {
-    const {getCurrentUser, getAllUsers, loadLibraryBooks} = this.props;
+    const {getCurrentUser, loadLibraryBooks} = this.props;
     const userObject = sessionStorage.getItem('user');
     getCurrentUser(userObject);
-    getAllUsers();
     loadLibraryBooks();
   }
 
@@ -50,7 +48,6 @@ const mapStateToProps = (state) => ({
   libraryBooks: state.libraryReducer.availableBooks,
   rentedBooks: state.libraryReducer.rentedBooks,
   pending: state.libraryReducer.pending,
-  users: state.userReducer.users,
   current_user: state.userReducer.current_user,
 });
 
@@ -59,7 +56,6 @@ const mapDispatchToProps = (dispatch) => ({
   rentBook: (book) => dispatch(rentBook(book)),
   returnBook: (book) => dispatch(returnBook(book)),
   loadLibraryBooks: () => dispatch(loadLibraryBooks()),
-  getAllUsers: () => dispatch(getAllUsers()),
   getCurrentUser: (userObject) => dispatch(getCurrentUser(userObject)),
 });
 
