@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 
@@ -27,7 +28,7 @@ class UsersList extends Component {
     } else {
       return (
         <div>
-        <h1>Users</h1>
+        <h4 className='mb-4 mt-4'>Users</h4>
           <table className='table'>
             <thead>
             <tr>
@@ -54,5 +55,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getAllUsers: () => dispatch(getAllUsers()),
 });
+
+UsersList.propTypes = {
+  users: PropTypes.arrayOf(PropTypes.object),
+  pending: PropTypes.bool,
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UsersList))

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
@@ -33,8 +34,6 @@ class BookSearchPage extends Component {
 
     return (
       <div className='row'>
-        <h1>Search for books</h1>
-        <h1>Loading state</h1>
         {message ? <div className='alert alert-success success-banner' role='alert'>{message}</div> : null}
         <div className='col-sm-12 mb-3'>
           <Search
@@ -71,5 +70,14 @@ const mapDispatchToProps = (dispatch) => ({
   searchInput: (formData) => dispatch(searchInput(formData)),
   updateSearchInput: (formData) => dispatch(updateSearchInput(formData)),
 });
+
+BookSearchPage.propTypes = {
+  searchQuery: PropTypes.string,
+  searchResults: PropTypes.arrayOf(PropTypes.object),
+  pending: PropTypes.bool,
+  libraryBooks: PropTypes.arrayOf(PropTypes.object),
+  rentedBooks: PropTypes.arrayOf(PropTypes.object),
+  message: PropTypes.string
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BookSearchPage))

@@ -13,7 +13,7 @@ export const NavLinks = ({logout}) => (
       <NavLink className='nav-link' to='/users'>Users</NavLink>
     </li>
     <li className='nav-item'>
-      <a className='nav-link' onClick={() => logout()}>Logout</a>
+      <a href='#' className='nav-link' onClick={() => logout()}>Logout</a>
     </li>
   </ul>
 );

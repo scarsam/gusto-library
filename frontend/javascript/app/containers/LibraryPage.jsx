@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
@@ -31,11 +32,11 @@ class LibraryPage extends Component {
       return <p>Loading..</p>
     } else {
       return (
-        <div>
+        <div className='row'>
           {message ? <div className='alert alert-success success-banner' role='alert'>{message}</div> : null}
-          <h1>Library</h1>
+          <h4 className='mb-4 mt-4'>Library</h4>
           <LibraryBookResults {...this.props} results={libraryBooks} />
-          <h1>Rented Books</h1>
+          <h4 className='mb-4 mt-4'>Rented Books</h4>
           <RentedBookResults {...this.props} results={rentedBooks}/>
         </div>
       )
@@ -59,5 +60,13 @@ const mapDispatchToProps = (dispatch) => ({
   loadLibraryBooks: () => dispatch(loadLibraryBooks()),
   getCurrentUser: (userObject) => dispatch(getCurrentUser(userObject)),
 });
+
+LibraryPage.propTypes = {
+  current_user: PropTypes.object,
+  pending: PropTypes.bool,
+  libraryBooks: PropTypes.arrayOf(PropTypes.object),
+  rentedBooks: PropTypes.arrayOf(PropTypes.object),
+  message: PropTypes.string
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LibraryPage))

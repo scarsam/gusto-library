@@ -25,7 +25,7 @@ class GoogleLoginPage extends Component {
   render () {
     return (
       <div className='height-100vh d-flex justify-content-center flex-column align-items-center text-center'>
-          <h1 className='mb-4'>Gusto Library</h1>
+          <h2 className='mb-4'>Gusto Library</h2>
           <GoogleLogin
             clientId="1070093517148-deo4ica3jpaq13ghcttmbb7lertk5vls.apps.googleusercontent.com"
             buttonText="Login"
