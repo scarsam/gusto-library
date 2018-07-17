@@ -9,7 +9,7 @@ export const RentedBookResults = ({results, current_user, returnBook}) => {
         <td>{book.title}</td>
         <td>{rented_book.user.name}</td>
         <td>{rented_book.user_id === current_user.id ?
-          <a className='text-primary' onClick={() => returnBook(book)}>Return Book</a> : null
+          <a href='#' className='text-primary' onClick={() => returnBook(book)}>Return Book</a> : null
         }</td>
       </tr>
     );

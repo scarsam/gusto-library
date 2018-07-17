@@ -23,7 +23,5 @@ export const LibraryBookResults = ({results, current_user, rentBook, removeBook}
       </div>
     </div>
   ));
-  return (
-    <div className="row">{libraryResults}</div>
-  )
+  return <div className='row'>{libraryResults}</div>
 };

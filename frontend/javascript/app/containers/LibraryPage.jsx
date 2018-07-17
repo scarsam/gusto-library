@@ -34,10 +34,18 @@ class LibraryPage extends Component {
       return (
         <div className='row'>
           {message ? <div className='alert alert-success success-banner' role='alert'>{message}</div> : null}
-          <h4 className='mb-4 mt-4'>Library</h4>
-          <LibraryBookResults {...this.props} results={libraryBooks} />
-          <h4 className='mb-4 mt-4'>Rented Books</h4>
-          <RentedBookResults {...this.props} results={rentedBooks}/>
+          <div className='col-sm-12'>
+            <div className='row'>
+              <h4 className='mb-4 mt-4'>Library</h4>
+              <LibraryBookResults {...this.props} results={libraryBooks} />
+            </div>
+          </div>
+          <div className='col-sm-12'>
+            <div className='row'>
+              <h4 className='mb-4 mt-4'>Rented Books</h4>
+              <RentedBookResults {...this.props} results={rentedBooks}/>
+            </div>
+          </div>
         </div>
       )
     }
