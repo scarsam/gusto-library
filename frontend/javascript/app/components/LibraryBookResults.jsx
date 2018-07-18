@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const LibraryBookResults = ({results, current_user, rentBook, removeBook}) => {
-  const libraryResults = results.map((book, index) => (
+// Loop over library books and output information for each book
+// If current user is the same as the books user id then display the remove book from library button
+export const LibraryBookResults = ({libraryBooks, current_user, rentBook, removeBook}) => {
+  const libraryResults = libraryBooks.map((book, index) => (
     <div className='col-sm-12 mb-3' key={index}>
       <div className='card' key={index}>
         <div className='d-flex align-items-center'>

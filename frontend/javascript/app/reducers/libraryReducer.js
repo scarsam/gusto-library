@@ -29,6 +29,9 @@ export const libraryReducer = (state = initialState, action) => {
       return {
         ...state,
         pending: false,
+        // Filtering out rented books and available books
+        // Rented books will have an rented_book key with it's associated data
+        // Available books will have an rented_book key set to null
         rentedBooks: payload.filter(libraryBook => libraryBook.rented_book !== null),
         availableBooks: payload.filter(libraryBook => libraryBook.rented_book === null)
       };

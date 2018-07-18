@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
+// Nav and logout links
 export const NavLinks = ({logout}) => (
   <ul className='nav justify-content-center'>
     <li className='nav-item'>

@@ -37,13 +37,13 @@ class LibraryPage extends Component {
           <div className='col-sm-12'>
             <div className='row'>
               <h4 className='mb-4 mt-4'>Library</h4>
-              <LibraryBookResults {...this.props} results={libraryBooks} />
+              <LibraryBookResults {...this.props} libraryBooks={libraryBooks} />
             </div>
           </div>
           <div className='col-sm-12'>
             <div className='row'>
               <h4 className='mb-4 mt-4'>Rented Books</h4>
-              <RentedBookResults {...this.props} results={rentedBooks}/>
+              <RentedBookResults {...this.props} rentedBooks={rentedBooks}/>
             </div>
           </div>
         </div>

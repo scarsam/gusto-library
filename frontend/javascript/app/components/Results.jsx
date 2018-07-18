@@ -1,6 +1,8 @@
 import React from 'react'
 import '../../../stylesheets/main.scss'
 
+// Loop over searchResults and output information for each book
+// Filter out library books, rented books and undefined books from the list
 export const Results = ({libraryBooks, rentedBooks, searchResults, addBook, pending}) => {
   const filteredResults = searchResults
     .filter(book => filterUndefined(book))

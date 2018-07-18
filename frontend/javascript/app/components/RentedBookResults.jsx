@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const RentedBookResults = ({results, current_user, returnBook}) => {
-  const rentedBookResults = results.map((book, index) => {
+// Loop over rented books and output information for each book
+// If current user is the same as the rented book user id then display the return book button
+export const RentedBookResults = ({rentedBooks, current_user, returnBook}) => {
+  const rentedBookResults = rentedBooks.map((book, index) => {
     const rented_book = book.rented_book;
     return (
       <tr key={index}>
