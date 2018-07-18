@@ -5,6 +5,8 @@ import {
 } from "../constants";
 import {API} from "../api";
 
+// Dispatches and action to load all books
+// Uses an instance of the Axios library to include the crsf token and my jwt token from sessionStorage
 export const loadLibraryBooks = () => {
   return dispatch => {
     dispatch({type: LIBRARY_BOOKS_REQUEST});

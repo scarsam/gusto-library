@@ -1,5 +1,4 @@
 const API_KEY = `${process.env.REACT_APP_API_KEY_GOOGLE_BOOKS}`;
-import {API} from "../api";
 import axios from 'axios';
 
 import {
@@ -9,6 +8,8 @@ import {
   BOOK_SEARCH_RESET,
 } from "../constants";
 
+// Dispatches an action to reset the search input if the input is empty
+// If input search query and input data is equal (to prevent, lag in search results) then dispatch an book search success
 export const searchInput = (formData) => {
   this.search = formData;
   if (formData === '') {
@@ -25,6 +26,7 @@ export const searchInput = (formData) => {
   };
 };
 
+// Dispatches an input field update on changed value
 export const updateSearchInput = (formData) => {
   const inputValue = formData.target.value;
   return {type: BOOK_SEARCH_UPDATE, payload: inputValue}

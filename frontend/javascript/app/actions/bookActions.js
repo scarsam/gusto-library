@@ -16,6 +16,8 @@ import {
 } from "../constants";
 import {API} from "../api";
 
+// Dispatches and action to create a new rented book, it takes the created book and adds it to the join table
+// After the promise is resolved it will dispatch the notification action
 export const rentBook = (book) => {
   return dispatch => {
     dispatch({type: RENT_BOOK_REQUEST});
@@ -35,6 +37,8 @@ export const rentBook = (book) => {
   }
 };
 
+// Dispatches and action to delete a rented book, it takes the clicked book and removes it from the join table
+// After the promise is resolved it will dispatch the notification action
 export const returnBook = (book) => {
   return dispatch => {
     dispatch({type: RETURN_BOOK_REQUEST});
@@ -54,6 +58,8 @@ export const returnBook = (book) => {
   }
 };
 
+// Dispatches and action to delete a book, it takes the clicked book and removes it from the book table
+// After the promise is resolved it will dispatch the notification action
 export const removeBook = (book) => {
   return dispatch => {
     dispatch({type: REMOVE_BOOK_REQUEST});
@@ -73,6 +79,8 @@ export const removeBook = (book) => {
   }
 };
 
+// Dispatches and action to create a book, it takes the clicked book and adds it to the book table
+// After the promise is resolved it will dispatch the notification action
 export const addBook = (book) => {
   return dispatch => {
     dispatch({type: ADD_BOOK_REQUEST});

@@ -7,6 +7,8 @@ import {
 import history from '../history'
 import {API} from "../api";
 
+// Dispatches an login action and also stores the jwt token from backend together with the user object
+// It then redirects the user into the application from importing history from react router
 export const loginUser = (userData) => {
   return dispatch => {
     dispatch({type: LOGIN_REQUEST});
@@ -24,6 +26,8 @@ export const loginError = (error) => {
   return {type: LOGIN_FAILURE, payload: error}
 };
 
+// Removes the stored jwt token and user object from sessionStorage
+// And redirects the user to the login page
 export const logoutUser = () => {
   sessionStorage.removeItem('jwt');
   sessionStorage.removeItem('user');

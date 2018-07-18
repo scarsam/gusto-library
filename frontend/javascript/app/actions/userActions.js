@@ -6,6 +6,7 @@ import {
 } from "../constants";
 import {API} from "../api";
 
+// Parses the user object from the sessionStorage to check the current logged in user
 export const getCurrentUser = (userData) => {
   return {type: CURRENT_USER_SUCCESS, payload: JSON.parse(userData)}
 };
