@@ -31,8 +31,8 @@ class GoogleLoginPage extends Component {
           <h1>Welcome to the library</h1>
           <p className='mt-3 mb-3'>This is a place to come and see what books we currently have in our library. A place to see who’s currently reading what books. And a place to add new books to our collection. Happy reading!</p>
           <GoogleLogin
-            clientId="1070093517148-deo4ica3jpaq13ghcttmbb7lertk5vls.apps.googleusercontent.com"
-            buttonText="Login"
+            clientId='1070093517148-oqilepjb1tfgh9747kb111u7o5g525a9.apps.googleusercontent.com'
+            buttonText='Login'
             onSuccess={this.onSuccess}
             onFailure={this.onFailure}
             className={'google-login'}>
