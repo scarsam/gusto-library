@@ -15,12 +15,10 @@ class GoogleLoginPage extends Component {
   }
 
   onSuccess = (userData) => {
-    console.log(userData);
     this.props.loginUser(userData);
   };
 
   onFailure = (error) => {
-    console.log(error);
     this.props.loginError(error);
   };
 

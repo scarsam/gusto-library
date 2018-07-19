@@ -14,7 +14,6 @@ export const loginUser = (userData) => {
     dispatch({type: LOGIN_REQUEST});
     API.post('/api/v1/sessions', userData.profileObj)
       .then(response => {
-        console.log(response);
         sessionStorage.setItem('jwt', response.data.token);
         sessionStorage.setItem('user', JSON.stringify(response.data.user));
         dispatch({type: LOGIN_SUCCESS, payload: response.data});
@@ -24,7 +23,6 @@ export const loginUser = (userData) => {
 };
 
 export const loginError = (error) => {
-  console.log(error);
   return {type: LOGIN_FAILURE, payload: error}
 };
 
