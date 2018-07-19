@@ -1,14 +1,13 @@
 module Api
   module V1
     class SessionsController < ApplicationController
-
       def create
         @user = User.find_or_create_by(googleId: user_params[:googleId]) do |u|
           u.name = user_params[:name]
           u.email = user_params[:email]
           u.imageUrl = user_params[:imageUrl]
         end
-        token = Auth.issue({googleId: user_params[:googleId]})
+        token = Auth.issue({googleId: @user.googleId})
         render json: {token: token, user: @user}, status: 200
       end
 

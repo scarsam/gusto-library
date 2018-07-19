@@ -2,6 +2,7 @@ require 'jwt'
 
 class Auth
   def self.issue(payload)
+    puts payload
     JWT.encode(payload, auth_secret, auth_algorithm)
   end
 
