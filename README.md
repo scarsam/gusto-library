@@ -1,5 +1,5 @@
 # Library Site React/Redux
-Check out the hosted version on heroku [https://gusto-library.herokuapp.com/login](Library Site)
+Check out the hosted version on heroku: [Library Site](https://gusto-library.herokuapp.com/login)
 
 This is my first React/Redux application with an Rails powered API to persist and fetch data. It was made as an idea to create an digital library for the design team over at Gusto. The application will let the user search for books from Google Books API and add those to the library, from the library you can rent/return books you've added. The application is using an JWT token authentication system together with SSO.
 
