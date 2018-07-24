@@ -10,10 +10,6 @@ import {getAllUsers} from '../actions/userActions';
 import {User} from '../components/User'
 
 class UsersList extends Component {
-  constructor() {
-    super()
-  }
-
   componentDidMount() {
     this.props.getAllUsers();
   }

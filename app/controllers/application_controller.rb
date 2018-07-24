@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def auth_header
+    request.headers['Authorization']
+  end
+
   def auth_secret
     Auth.decode(auth_header) || {}
   end

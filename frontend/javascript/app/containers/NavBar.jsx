@@ -10,10 +10,6 @@ import {NavLinks} from '../components/NavLinks'
 import {logoutUser} from '../actions/sessionActions'
 
 class NavBar extends Component {
-  constructor(props) {
-    super();
-  }
-
   render() {
     const location = this.props.location.pathname;
     return (

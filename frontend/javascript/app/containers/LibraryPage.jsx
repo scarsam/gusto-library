@@ -15,10 +15,6 @@ import {loadLibraryBooks} from '../actions/libraryActions';
 import {getCurrentUser} from '../actions/userActions';
 
 class LibraryPage extends Component {
-  constructor(props) {
-    super();
-  }
-
   componentDidMount() {
     const {getCurrentUser, loadLibraryBooks} = this.props;
     const userObject = sessionStorage.getItem('user');

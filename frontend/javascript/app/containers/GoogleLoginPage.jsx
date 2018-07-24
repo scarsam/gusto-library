@@ -10,10 +10,6 @@ import { loginUser } from "../actions/sessionActions";
 import { loginError } from "../actions/sessionActions";
 
 class GoogleLoginPage extends Component {
-  constructor(props) {
-    super();
-  }
-
   onSuccess = (userData) => {
     this.props.loginUser(userData);
   };

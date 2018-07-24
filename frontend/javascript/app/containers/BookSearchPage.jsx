@@ -14,10 +14,6 @@ import {Results} from "../components/Results";
 import {Search} from '../components/Search'
 
 class BookSearchPage extends Component {
-  constructor(props) {
-    super();
-  }
-
   componentDidMount() {
     this.props.loadLibraryBooks();
   }
