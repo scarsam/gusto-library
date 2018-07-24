@@ -1,15 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :authenticate, :set_current_user
-
-  def authenticate
-    unless set_current_user
-      render status: 401, json: {
-        error: 'Invalid credentials'
-      }
-    end
-  end
+  helper_method :set_current_user
 
   def set_current_user
     begin
@@ -20,10 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-  def auth_header
-    request.headers['Authorization']
-  end
 
   def auth_secret
     Auth.decode(auth_header) || {}
